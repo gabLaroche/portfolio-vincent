@@ -1,0 +1,47 @@
+@import "utils";
+
+:root {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6rem;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: $bg-colour;
+    color: $text-colour;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filter {
+    max-width: 95%;
+    margin: 0 auto;
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.mosaic {
+    /* Prevent vertical gaps */
+    line-height: 0;
+
+    column-count: 5;
+    column-gap: 1rem;
+    column-fill: balance;
+
+    &__item {
+        margin-bottom: 1rem;
+
+        img {
+            border-radius: 5px;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
