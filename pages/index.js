@@ -1,23 +1,39 @@
-import React from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Head from 'next/head';
-import Navigation from "../components/Navigation/Navigation";
 import Prismic from "prismic-javascript";
-import { RichText } from 'prismic-reactjs';
-import { Client, linkResolver, hrefResolver } from "../prismic-configuration";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Client } from "../prismic-configuration";
 import '../public/styles/global.scss';
 
 const Home = ({projects, categories}) => {
 
-    const subcategories = [];
+    const [subcategories, setSubcategories] = useState([]);
+    const [activeCategories, setActiveCategories] = useState([]);
+    const projectRef = useRef(null);
 
-    for (let i = 0; i < categories.length; i++) {
-        for (let j = 0; j < categories[i].data.subcategories.length; j++) {
-            const subcategory = categories[i].data.subcategories[j].subcategory;
-            if (subcategory.type) {
-                subcategories.push(subcategory.id);
+    const toggleCategory = (categoryId) => {
+        if (activeCategories.includes(categoryId)) {
+            setActiveCategories(activeCategories.filter(activeCategoryId => activeCategoryId !== categoryId));
+        } else {
+            setActiveCategories([...activeCategories, categoryId]);
+        }
+    };
+
+    useEffect(() => {
+        const subcategoriesInitial = [];
+        const activeCategoriesInitial = [];
+        for (let i = 0; i < categories.length; i++) {
+            activeCategoriesInitial.push(categories[i].id);
+            for (let j = 0; j < categories[i].data.subcategories.length; j++) {
+                const subcategory = categories[i].data.subcategories[j].subcategory;
+                if (subcategory.type) {
+                    subcategoriesInitial.push(subcategory.id);
+                }
             }
         }
-    }
+        setActiveCategories(activeCategoriesInitial);
+        setSubcategories(subcategoriesInitial);
+    }, []);
 
     return (
         <>
@@ -39,7 +55,13 @@ const Home = ({projects, categories}) => {
                             if (!subcategories.includes(category.id)) {
                                 return (
                                     <li className={'filter__list-item'} key={category.id}>
-                                        <input className={'filter__input'} type={'checkbox'} id={category.id}/>
+                                        <input
+                                            className={'filter__input'}
+                                            type={'checkbox'}
+                                            id={category.id}
+                                            checked={activeCategories.includes(category.id) || false}
+                                            onChange={() => toggleCategory(category.id)}
+                                        />
                                         <label className={'filter__label'} htmlFor={category.id}>{category.data.name}</label>
 
                                         {category.data.subcategories[0].subcategory.type && (
@@ -48,7 +70,12 @@ const Home = ({projects, categories}) => {
                                                     const subcategory = categories.find(category => category.id === subcategoryRef.subcategory.id);
                                                     return (
                                                             <li key={subcategory.id}>
-                                                                <input className={'filter__input'} type={'checkbox'} id={subcategory.id}/>
+                                                                <input
+                                                                    className={'filter__input'}
+                                                                    type={'checkbox'}
+                                                                    checked={activeCategories.includes(subcategory.id) || false}
+                                                                    onChange={() => toggleCategory(subcategory.id)} id={subcategory.id}
+                                                                />
                                                                 <label className={'filter__label'} htmlFor={subcategory.id}>{subcategory.data.name}</label>
                                                             </li>
                                                         )
@@ -62,11 +89,29 @@ const Home = ({projects, categories}) => {
                     </ul>
                 </div>
                 <section className={'mosaic'}>
-                    {projects.map((project) => (
-                        <div key={project.id} className={'mosaic__item'}>
-                            <img src={project.data.image.url} />
-                        </div>
-                    ))}
+                    {projects.map((project) => {
+                        const projectCategories = project.data.categories.map(category => {return activeCategories.includes(category.category.id) ? 'true' : 'false'});
+                        const isShown = projectCategories.includes('true');
+                        console.log(projectCategories);
+                        console.log(isShown);
+
+                        if (isShown) {
+                            return (
+                                <div
+                                    key={project.id}
+                                    className={`mosaic__item ${project.data.extra_images.length > 0 ? 'mosaic__item--multiple-images' : ''}`}
+                                >
+                                    <LazyLoadImage src={project.data.image.url} effect='opacity' />
+
+                                    {project.data.extra_images.length > 0 &&
+                                        project.data.extra_images.map((img, index) => (
+                                            <LazyLoadImage key={index} src={img[`image${index + 1}`].url} effect='opacity' />
+                                        ))
+                                    }
+                                </div>
+                            )}
+                        }
+                    )}
                 </section>
             </main>
 
@@ -80,7 +125,8 @@ const Home = ({projects, categories}) => {
 Home.getInitialProps = async function({ req }) {
     try {
         const projects = await Client(req).query(
-            Prismic.Predicates.at("document.type", "project")
+            Prismic.Predicates.at("document.type", "project"),
+            { orderings: "[my.project.title]" }
         );
 
         const categories = await Client(req).query(
