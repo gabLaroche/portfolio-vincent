@@ -9,11 +9,7 @@
 /coverage
 
 # next.js
-/.next/
-*/.next/*
-/.next/*
-/web/.next/
-web/.next/*
+**/web/.next/**
 /out/
 !public/
 
@@ -34,3 +30,11 @@ yarn-error.log*
 .env.build
 
 .now
+/web/.next/
+/web/.next/cache/
+/web/.next/server/
+/web/.next/static/
+/web/.next/build-manifest.json
+/web/.next/react-loadable-manifest.json
+/web/.next/cache/autodll-webpack-plugin/
+/web/.next/cache/next-babel-loader/
