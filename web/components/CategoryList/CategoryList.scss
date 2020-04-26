@@ -1,0 +1,35 @@
+@import "../../public/styles/utils";
+
+.category-list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 4rem 0;
+    max-width: 60vw;
+    list-style-type: none;
+}
+
+.category-list-item-link {
+    &:link, &:visited {
+        color: $text-colour;
+        border: 2px solid $text-colour;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: color, background-color ease 0.35s;
+    }
+
+    &:hover, &:focus {
+        color: $text-colour-inverted;
+        background-color: transparentize($bg-colour-inverted, 0.25);
+    }
+
+    &--active {
+        cursor: pointer;
+        pointer-events: none;
+        &:link, &:visited, &:hover, &:focus {
+            color: $text-colour-inverted;
+            background-color: $bg-colour-inverted;
+        }
+    }
+}

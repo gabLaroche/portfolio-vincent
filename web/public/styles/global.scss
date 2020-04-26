@@ -1,0 +1,34 @@
+@import "utils";
+
+:root {
+    font-size: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: $bg-colour;
+    color: $text-colour;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 95vw;
+
+    @include media-up(xlg) {
+        max-width: 1200px;
+    }
+}
+
+img {
+    max-width: 100%;
+}
