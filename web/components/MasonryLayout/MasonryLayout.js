@@ -1,17 +1,16 @@
-import React, {useState, useLayoutEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const MasonryLayout = props => {
-    const [columns, setColumns] = useState(props.columns);
-    const [columnWrapper] = {};
+    const columnWrapper = {};
     const result = [];
 
-    for (let i = 0; i < columns; i++) {
+    for (let i = 0; i < props.columns; i++) {
         columnWrapper[`column${i}`] = [];
     }
 
     for (let i = 0; i < props.children.length; i++) {
-        const columnIndex = i % columns;
+        const columnIndex = i % props.columns;
         columnWrapper[`column${columnIndex}`].push(
             <div style={{ marginBottom: `${props.gap}px`}}>
                 {props.children[i]}
@@ -19,7 +18,7 @@ const MasonryLayout = props => {
         );
     }
 
-    for (let i = 0; i < columns; i++) {
+    for (let i = 0; i < props.columns; i++) {
         result.push(
             <div
                 style={{
@@ -32,7 +31,7 @@ const MasonryLayout = props => {
     }
 
     return (
-        <div style={{ display: 'flex' }}>
+        <div className={props.className || null} style={{ display: 'flex' }}>
             {result}
         </div>
     );

@@ -1,16 +1,17 @@
 import React from 'react';
 import ProgressiveImage from "react-progressive-graceful-image";
 import './ProjectGridItem.scss';
+import {urlFor} from "../../utils";
 
 const ProjectGridItem = ({project}) => {
-    const imageUrls = project.imageUrls;
+    const images = project.images;
     return (
-        <div className={`project-grid-item ${imageUrls.length > 1 ? 'project-grid-item--multiple-images' : ''}`}>
-            {imageUrls.map((imageUrl, index) => (
+        <div className={`project-grid-item ${images.length > 1 ? 'project-grid-item--multiple-images' : ''}`}>
+            {images.map((image) => (
                 <ProgressiveImage
-                    key={index}
+                    key={image._key}
                     placeholder={'/placeholder-img.png'}
-                    src={imageUrl}
+                    src={urlFor(image).width(300).auto('format').url()}
                     rootMargin="0% 0% 0%"
                     threshold={[1]}>
                     {(src, loading) => <img style={{ opacity: loading ? 0.5 : 1 }} src={src} alt="an image" />}

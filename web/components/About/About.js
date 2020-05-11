@@ -2,6 +2,7 @@ import React from 'react';
 import BlockContent from '@sanity/block-content-to-react';
 import './About.scss';
 import ProgressiveImage from "react-progressive-graceful-image";
+import {urlFor} from "../../utils";
 
 const About = ({content}) => {
 
@@ -20,7 +21,7 @@ const About = ({content}) => {
             <div className={'about__container'}>
                 <ProgressiveImage
                     placeholder={'/placeholder-img-big.png'}
-                    src={content.imageUrl}
+                    src={urlFor(content.image).width(600).auto('format').url()}
                     rootMargin="0% 0% 0%"
                     threshold={[1]}>
                     {(src, loading) => <img style={{ opacity: loading ? 0.5 : 1 }} src={src} alt={content.title} />}

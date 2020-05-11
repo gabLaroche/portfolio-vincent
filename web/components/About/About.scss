@@ -4,6 +4,11 @@
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+
+    @include media-up(md) {
+        flex-direction: row;
+    }
 
     img {
         border-radius: 5px;
@@ -24,5 +29,14 @@
 }
 
 .about__container {
-    width: 48%;
+    display: flex;
+    justify-content: center;
+
+    @include media-up(md) {
+        width: 48%;
+    }
+
+    > div {
+        max-width: 100%;
+    }
 }

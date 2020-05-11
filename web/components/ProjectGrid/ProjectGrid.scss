@@ -2,7 +2,7 @@
 
 .project-grid {
     /* Prevent vertical gaps */
-    line-height: 0;
+    /*line-height: 0;
 
     column-count: 2;
     column-gap: 1rem;
@@ -18,5 +18,5 @@
 
     @include media-up(lg) {
         column-count: 5;
-    }
+    }*/
 }
