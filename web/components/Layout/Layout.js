@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from "next/head";
 
-const Layout = ({title, children}) => (
+const Layout = ({title, children, className}) => (
     <>
         {title &&
             <Head>
                 <title>{title}</title>
             </Head>
         }
-        <main className={'container'}>
+        <main className={`container ${className ? className : ''}`}>
             {children}
         </main>
         <footer>
