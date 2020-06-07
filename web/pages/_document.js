@@ -17,8 +17,8 @@ class MyDocument extends Document {
                     <script src="https://cdn.jsdelivr.net/npm/mailgo@0.8.5/dist/mailgo.min.js" defer></script>
                 </Head>
                 <body>
-                <Main />
-                <NextScript />
+                    <Main />
+                    <NextScript />
                 </body>
             </Html>
         )

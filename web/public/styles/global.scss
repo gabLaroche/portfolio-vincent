@@ -9,6 +9,10 @@ html {
 }
 
 body {
+    margin: 0;
+}
+
+.body {
     font-size: 1.6rem;
     margin: 0;
     font-family: sans-serif;
@@ -18,6 +22,10 @@ body {
 
 body, a, p, button, div, span, li {
     font-family: $font-family;
+}
+
+.m-modal a, .m-modal p, .m-modal span, .m-modal strong {
+    font-family: $font-family !important;
 }
 
 .hidden {

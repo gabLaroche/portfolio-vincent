@@ -9,14 +9,16 @@ const Layout = ({title, children, className}) => (
                 <title>{title}</title>
             </Head>
         }
-        <Navigation />
-        <main className={`container ${className ? className : ''}`}>
-            {children}
-        </main>
-        <footer>
-            <p><small>&copy; {new Date().getFullYear()} Vincent Blouin. Tout droits réservé</small></p>
-            <p><small>Développé par <a href={'https://gabriellaroche.dev'}>Gabriel Laroche</a></small></p>
-        </footer>
+        <div className={`body ${className ? className : null}`}>
+            <Navigation />
+            <div className={`container ${className ? className : ''}`}>
+                {children}
+            </div>
+            <footer>
+                <p><small>&copy; {new Date().getFullYear()} Vincent Blouin. Tout droits réservé</small></p>
+                <p><small>Développé par <a href={'https://gabriellaroche.dev'}>Gabriel Laroche</a></small></p>
+            </footer>
+        </div>
     </>
 );
 
