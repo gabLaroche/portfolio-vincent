@@ -9,9 +9,9 @@ const Layout = ({title, children, className}) => (
                 <title>{title}</title>
             </Head>
         }
-        <div className={`body ${className ? className : null}`}>
+        <div className={`body ${className ? className : ''}`}>
             <Navigation />
-            <div className={`container ${className ? className : ''}`}>
+            <div className={'container'}>
                 {children}
             </div>
             <footer>

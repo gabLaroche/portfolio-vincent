@@ -13,10 +13,6 @@ const query = `
 const Affiliate = ({doc}) => {
     const {affiliateProducts} = doc;
 
-    /*useEffect(() => {
-        document.body.classList.add('affiliate');
-    }, [])*/
-
     return (
         <Layout title={'Vincent Blouin | Produits Affiliés'} className={'affiliate'}>
             <ul className={'product-list'}>
