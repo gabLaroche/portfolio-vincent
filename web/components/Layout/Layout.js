@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from "next/head";
+import Navigation from "../Navigation/Navigation";
 
 const Layout = ({title, children, className}) => (
     <>
@@ -8,6 +9,7 @@ const Layout = ({title, children, className}) => (
                 <title>{title}</title>
             </Head>
         }
+        <Navigation />
         <main className={`container ${className ? className : ''}`}>
             {children}
         </main>

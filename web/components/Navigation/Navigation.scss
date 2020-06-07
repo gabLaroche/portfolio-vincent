@@ -3,6 +3,11 @@
 header {
     position: sticky;
     top: 0;
+    background: $bg-colour;
+
+    .affiliate & {
+        background: #ffffff;
+    }
 }
 
 #menuIconCheck {
@@ -11,6 +16,10 @@ header {
     &:checked {
         ~ .menu-icon .menu-icon__bar {
             background-color: $text-colour-inverted;
+
+            .affiliate & {
+                background-color: $text-colour;
+            }
 
             &:first-child, &:last-child {
                 top: 50%;
@@ -34,6 +43,23 @@ header {
 
 .menu__control {
     padding: 1.6rem;
+    display: flex;
+    align-items: center;
+}
+
+.menu__logo-link {
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.35s ease-in-out;
+
+    &:hover,&:focus {
+        transform: scale(1.1);
+    }
+
+    img {
+        width: 57px;
+        max-width: 100%;
+    }
 }
 
 .menu-icon {
@@ -55,6 +81,10 @@ header {
         right: auto;
         bottom: auto;
         left: auto;
+
+        .affiliate & {
+            background-color: $text-colour-inverted;
+        }
 
         &:first-child {
             top: 0;
@@ -86,6 +116,10 @@ header {
     transform: translateX(-110%);
     transition: all ease 0.5s;
 
+    .affiliate & {
+        background-color: $bg-colour;
+    }
+
     &--open {
         transform: translateX(0);
     }
@@ -93,6 +127,44 @@ header {
 
 .menu__list {
     padding: 3.2rem 1.6rem;
+    margin: 6rem 0 0;
     list-style-type: none;
     color: $text-colour-inverted;
+}
+
+.menu__list-item {
+    margin: 1rem 0;
+
+    a {
+        text-decoration: none;
+        font-size: 2rem;
+        text-shadow:
+                0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent,
+                2px -2px 0 transparent,  2px -1px 0 transparent,  2px 0px 0 transparent,
+                -2px -2px 0 transparent, -2px -1px 0 transparent, -2px 0px 0 transparent,
+                1px -2px 0 transparent,  1px -1px 0 transparent,  1px 0px 0 transparent,
+                -1px -2px 0 transparent, -1px -1px 0 transparent, -1px 0px 0 transparent,
+                0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent;
+        box-shadow:
+                0 -1px 0 0 transparent inset,
+                0 -2px 0 0 transparent inset ;
+
+        transition: all .3s ease-in-out;
+
+        &:link, &:visited {
+            color: $text-colour-inverted;
+
+            .affiliate & {
+                color: $text-colour;
+            }
+        }
+
+        &:hover, &:focus {
+            box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour-inverted inset ;
+
+            .affiliate & {
+                box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset ;
+            }
+        }
+    }
 }

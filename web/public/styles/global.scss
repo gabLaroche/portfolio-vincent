@@ -16,6 +16,10 @@ body {
     color: $text-colour;
 }
 
+body, a, p, button, div, span, li {
+    font-family: $font-family;
+}
+
 .hidden {
     display: none;
 }
@@ -58,11 +62,13 @@ img {
     }
 
     &:hover, &:focus {
-        .product-list-item-amazon {
-            &::after {
-                left: 5px;
-            }
+        img {
+            transform: translateY(-5px);
         }
+    }
+
+    img {
+        transition: transform 0.35s ease-in-out;
     }
 }
 
@@ -75,17 +81,4 @@ img {
 
 .product-list-item-amazon {
     font-size: 1.2rem;
-    &::after {
-        content: '';
-        display: inline-block;
-        width: 6px;
-        height: 6px;
-        position: relative;
-        top: 1px;
-        margin-left: 2px;
-        border-right: 2px solid;
-        border-top: 2px solid;
-        border-top-right-radius: 2px;
-        transform: rotate(45deg);
-    }
 }

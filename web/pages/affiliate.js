@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import client from "../client";
 import '../public/styles/global.scss';
 import Layout from "../components/Layout/Layout";
@@ -13,7 +13,9 @@ const query = `
 const Affiliate = ({doc}) => {
     const {affiliateProducts} = doc;
 
-    console.log(affiliateProducts);
+    useEffect(() => {
+        document.body.classList.add('affiliate');
+    }, [])
 
     return (
         <Layout title={'Vincent Blouin | Produits Affiliés'}>
@@ -24,7 +26,7 @@ const Affiliate = ({doc}) => {
                             <img className={'product-list-item-img'} src={urlFor(product.imageUrl).width(200).auto('format').url()} alt={`A picture of ${product.productName}`} />
                             <p className={'product-list-item-bottom'}>
                                 <span className={'product-list-item-name'}>{product.productName}</span>
-                                <span className={'product-list-item-amazon'}>Voir le prix sur Amazon</span>
+                                <span className={'product-list-item-amazon'}>Voir le prix sur Amazon <i className="ri-external-link-fill"></i></span>
                             </p>
                         </a>
                     </li>

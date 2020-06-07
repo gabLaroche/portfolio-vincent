@@ -12,9 +12,12 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
+    "@sanity/dashboard",
     "@sanity/desk-tool",
     "media",
-    "@sanity/code-input"
+    "@sanity/code-input",
+    "dashboard-widget-structure-menu",
+    "dashboard-widget-document-list"
   ],
   "env": {
     "development": {
@@ -27,6 +30,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
     }
   ]
 }

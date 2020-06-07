@@ -13,29 +13,24 @@ const Navigation = (props) => {
                     <span className="menu-icon__bar"></span>
                     <span className="menu-icon__bar"></span>
                 </label>
+                <a className={'menu__logo-link'} href={'/'}><img alt={'logo'} src={'/logo.png'} /></a>
             </div>
             <nav className={`menu ${isMenuOpened ? 'menu--open' : ''}`}>
                 <ul className="menu__list">
                     <li className="menu__list-item">
-                        <a href={'#graphisme'}>Graphisme</a>
-                        <ul>
-                            <li>
-                                <a href={'graphismeIcones'}>Impression</a>
-                            </li>
-                            <li>
-                                <a href={'graphismeImpression'}>Impression</a>
-                            </li>
-                            <li>
-                                <a href={'#graphimseIllustration'}>Illustration</a>
-                            </li>
-                        </ul>
+                        <a href={'/category/graphisme#c'}>Graphisme</a>
                     </li>
-                    <li className="menu__list-item"><a href={'#photographie'}>Photographie</a></li>
-                    <li className="menu__list-item"><a href={'#video'}>Vidéo</a></li>
-                    <li className="menu__list-item"><a href={'#contact'}>Contact</a></li>
+                    <li className="menu__list-item">
+                        <a href={'/category/photographie#c'}>Photographie</a>
+                    </li>
+                    <li className="menu__list-item">
+                        <a href={'/affiliate'}>Produits amazon affilié</a>
+                    </li>
+                    <li className="menu__list-item">
+                        <a href="mailto:vincent_blouin@outlook.com">Contact</a>
+                    </li>
                 </ul>
             </nav>
-            {/*<a href={'#'}><img alt={'logo'} src={'./logo.png'} /></a>*/}
         </header>
     )
 };
