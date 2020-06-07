@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import client from "../client";
 import '../public/styles/global.scss';
 import Layout from "../components/Layout/Layout";
@@ -14,7 +14,7 @@ const Affiliate = ({doc}) => {
     const {affiliateProducts} = doc;
 
     return (
-        <Layout title={'Vincent Blouin | Produits Affiliés'} className={'affiliate'}>
+        <Layout title={'Vincent Blouin | Produits Affiliés'}>
             <ul className={'product-list'}>
                 { affiliateProducts.map(product => (
                     <li className={'product-list-item'} key={product._id}>
