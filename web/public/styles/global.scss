@@ -44,6 +44,7 @@ body, a, p, button, div, span, li {
 img {
     max-width: 100%;
 }
+
 .affiliate {
     h1, h2 {
         text-align: center;
@@ -105,4 +106,44 @@ img {
 
 .product-list-item-amazon {
     font-size: 1.2rem;
+}
+
+footer {
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        transition: all .3s ease-in-out;
+        box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset ;
+
+        .affiliate & {
+            box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour-inverted inset ;
+        }
+
+        &:link, &:visited {
+            color: $text-colour;
+
+            .affiliate & {
+                color: $text-colour-inverted;
+            }
+        }
+
+        &:hover, &:focus {
+            text-shadow:
+                    0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent,
+                    2px -2px 0 transparent,  2px -1px 0 transparent,  2px 0px 0 transparent,
+                    -2px -2px 0 transparent, -2px -1px 0 transparent, -2px 0px 0 transparent,
+                    1px -2px 0 transparent,  1px -1px 0 transparent,  1px 0px 0 transparent,
+                    -1px -2px 0 transparent, -1px -1px 0 transparent, -1px 0px 0 transparent,
+                    0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent;
+            box-shadow:
+                    0 -1px 0 0 transparent inset,
+                    0 -2px 0 0 transparent inset ;
+        }
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+        padding-bottom: 2rem;
+    }
 }
