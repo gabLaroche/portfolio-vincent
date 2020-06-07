@@ -5,6 +5,7 @@ import category from "./category";
 import about from "./about";
 import affiliateProductCategory from "./affiliateProductCategory";
 import affiliateProduct from "./affiliateProduct";
+import socialMediaLink from "./socialMediaLink";
 
 export default createSchema({
   name: 'mySchema',
@@ -13,6 +14,7 @@ export default createSchema({
       affiliateProductCategory,
       affiliateProduct,
       category,
-      project
+      project,
+      socialMediaLink
   ])
 })

@@ -46,11 +46,11 @@ header {
     padding: 1.6rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .menu__logo-link {
     display: block;
-    margin: 0 auto;
     transition: transform 0.35s ease-in-out;
 
     &:hover,&:focus {
@@ -70,6 +70,11 @@ header {
     height: 25px;
     position: relative;
     z-index: 10;
+    transition: transform 0.35s ease-in-out;
+
+    &:hover, &:focus {
+        transform: scale(1.1);
+    }
 
     .menu-icon__bar {
         position: absolute;
@@ -167,5 +172,32 @@ header {
                 box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset ;
             }
         }
+    }
+}
+
+.social-media__list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 1.5rem;
+    padding: 0;
+    list-style-type: none;
+}
+
+.social-media__link {
+    text-decoration: none;
+    font-size: 2.8rem;
+    transition: transform 0.35s ease-in-out;
+    display: block;
+
+    &:link, &:visited {
+        color: $text-colour;
+
+        .affiliate & {
+            color: $text-colour-inverted;
+        }
+    }
+
+    &:hover, &:focus {
+        transform: scale(1.1);
     }
 }

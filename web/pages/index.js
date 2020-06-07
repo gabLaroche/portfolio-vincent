@@ -5,6 +5,7 @@ import '../public/styles/global.scss';
 import CategoryList from "../components/CategoryList/CategoryList";
 import Layout from "../components/Layout/Layout";
 import About from "../components/About/About";
+import { socialMediaQuery } from "../utils";
 
 const query = `
 {
@@ -14,14 +15,15 @@ const query = `
     'categories': categories[]->,
     'imageUrls': images[].asset->url
   },
-  'about': *[_type == "about"] {..., 'imageUrl': image.asset->url}[0]
+  'about': *[_type == "about"] {..., 'imageUrl': image.asset->url}[0],
+  ${socialMediaQuery}
 }`;
 
 const Home = ({doc}) => {
-    const {categories, projects, about} = doc;
+    const {categories, projects, about, socialMediaLinks} = doc;
 
     return (
-        <Layout title={'Vincent Blouin'}>
+        <Layout title={'Vincent Blouin'} socialMediaLinks={socialMediaLinks}>
             <About content={about} />
             <CategoryList categories={categories} />
             <ProjectGrid projects={projects} />

@@ -2,7 +2,7 @@ import React from 'react';
 import Head from "next/head";
 import Navigation from "../Navigation/Navigation";
 
-const Layout = ({title, children, className}) => (
+const Layout = ({title, children, className, socialMediaLinks}) => (
     <>
         {title &&
             <Head>
@@ -10,7 +10,7 @@ const Layout = ({title, children, className}) => (
             </Head>
         }
         <div className={`body ${className ? className : ''}`}>
-            <Navigation />
+            <Navigation socialMediaLinks={socialMediaLinks} />
             <div className={'container'}>
                 {children}
             </div>

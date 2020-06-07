@@ -1,4 +1,5 @@
-import React, {useState, useLayoutEffect} from 'react';
+import React, { useState, useLayoutEffect } from 'react';
+import { useIsomorphicLayoutEffect } from '../../utils';
 import MasonryLayout from '../MasonryLayout/MasonryLayout'
 import ProjectGridItem from "../ProjectGridItem/ProjectGridItem";
 import './ProjectGrid.scss';
@@ -6,11 +7,11 @@ import './ProjectGrid.scss';
 const ProjectGrid = ({projects}) => {
     const [columns, setColumns] = useState(2);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         handleResize();
     },[]);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         window.addEventListener('resize', handleResize);
 
         return () => {
