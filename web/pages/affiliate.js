@@ -14,7 +14,7 @@ const Affiliate = ({doc}) => {
     const {affiliateProducts} = doc;
 
     return (
-        <Layout title={'Vincent Blouin | Produits Affiliés'}>
+        <Layout title={'Vincent Blouin | Produits Affiliés'} className={'affiliate'}>
             <ul className={'product-list'}>
                 { affiliateProducts.map(product => (
                     <li className={'product-list-item'} key={product._id}>
