@@ -15,7 +15,7 @@ const Layout = ({title, children, className, socialMediaLinks}) => (
                 {children}
             </div>
             <footer>
-                <p><small>&copy; {new Date().getFullYear()} Vincent Blouin. Tout droits réservé</small></p>
+                <p><small>&copy; {new Date().getFullYear()} Vincent Blouin. Tous droits réservé</small></p>
                 <p><small>Développé par <a href={'https://gabriellaroche.dev'}>Gabriel Laroche</a></small></p>
             </footer>
         </div>
