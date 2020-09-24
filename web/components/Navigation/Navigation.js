@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import client from "../../client";
 import './Navigation.scss';
+import Link from 'next/link';
 
 const Navigation = ({socialMediaLinks}) => {
     const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -36,13 +37,19 @@ const Navigation = ({socialMediaLinks}) => {
             <nav className={`menu ${isMenuOpened ? 'menu--open' : ''}`}>
                 <ul className="menu__list">
                     <li className="menu__list-item">
-                        <a href={'/category/graphisme#c'}>Graphisme</a>
+                        <Link href={'/category/graphisme#c'}>
+                            <a>Graphisme</a>
+                        </Link>
                     </li>
                     <li className="menu__list-item">
-                        <a href={'/category/photographie#c'}>Photographie</a>
+                        <Link href={'/category/photographie#c'}>
+                            <a>Photographie</a>
+                        </Link>
                     </li>
                     <li className="menu__list-item">
-                        <a href={'/affiliate'}>Produits amazon affilié</a>
+                        <Link href={'/affiliate'}>
+                            <a>Produits amazon affilié</a>
+                        </Link>
                     </li>
                     <li className="menu__list-item">
                         <a href="mailto:vincent_blouin@outlook.com">Contact</a>
