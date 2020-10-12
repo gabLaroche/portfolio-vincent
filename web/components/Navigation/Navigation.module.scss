@@ -1,6 +1,6 @@
-@import "../../public/styles/utils";
+@import "../../styles/utils";
 
-header {
+.header {
     position: sticky;
     top: 0;
     background: $bg-colour;
@@ -11,7 +11,7 @@ header {
     }
 }
 
-#menuIconCheck {
+.menu-icon__check {
     position: absolute;
     left: -9999px;
     &:checked {
@@ -40,6 +40,12 @@ header {
             }
         }
     }
+}
+
+.menu__control-container {
+  @include media-up(sm) {
+    width: 200px;
+  }
 }
 
 .menu__control {

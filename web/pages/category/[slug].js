@@ -1,14 +1,13 @@
-import React from 'react'
-import Head from 'next/head';
-import ProjectGrid from "../../components/ProjectGrid/ProjectGrid";
-import client from "../../client";
-import '../../public/styles/global.scss';
-import CategoryList from "../../components/CategoryList/CategoryList";
-import Layout from "../../components/Layout/Layout";
-import About from "../../components/About/About";
-import { socialMediaQuery } from "../../utils";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ProjectGrid from '../../components/ProjectGrid/ProjectGrid';
+import client from '../../client';
+import CategoryList from '../../components/CategoryList/CategoryList';
+import Layout from '../../components/Layout/Layout';
+import About from '../../components/About/About';
+import { socialMediaQuery } from '../../utils';
 
-const categoriesQuery = `*[_type == "category"] { slug }`;
+const categoriesQuery = '*[_type == "category"] { slug }';
 
 const query = `
 {
@@ -20,33 +19,50 @@ const query = `
   ${socialMediaQuery}
 }`;
 
-const Category = ({doc}) => {
-    const {currentCategory, categories, about, socialMediaLinks} = doc;
+const Category = ({ doc }) => {
+  const {
+    currentCategory, categories, about, socialMediaLinks,
+  } = doc;
 
-    return (
+  return (
 
-        <Layout title={`Vincent Blouin | ${currentCategory.title}`} socialMediaLinks={socialMediaLinks}>
-            <About content={about} />
-            <CategoryList categories={categories} currentCategoryId={currentCategory._id} />
-            <ProjectGrid projects={currentCategory.projects} />
-        </Layout>
-    )
+    <Layout title={`Vincent Blouin | ${currentCategory.title}`} socialMediaLinks={socialMediaLinks}>
+      <About content={about} />
+      <CategoryList categories={categories} currentCategoryId={currentCategory._id} />
+      <ProjectGrid projects={currentCategory.projects} />
+    </Layout>
+  );
 };
 
 export default Category;
 
 export const getStaticPaths = async () => {
-    // Get the paths we want to pre-render based on persons
-    const categories = await client.fetch(categoriesQuery);
-    const paths = categories.map(category => ({
-        params: { slug: category.slug.current }
-    }));
+  // Get the paths we want to pre-render based on persons
+  const categories = await client.fetch(categoriesQuery);
+  const paths = categories.map((category) => ({
+    params: { slug: category.slug.current },
+  }));
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return { paths, fallback: false };
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false };
 };
 export const getStaticProps = async ({ params }) => {
-    const doc = await client.fetch(query, { slug: params.slug });
-    return { props: { doc } };
+  const doc = await client.fetch(query, { slug: params.slug });
+  return { props: { doc } };
+};
+
+Category.propTypes = {
+  doc: PropTypes.shape({
+    currentCategory: PropTypes.shape({
+      projects: PropTypes.array,
+      title: PropTypes.string,
+      _id: PropTypes.string,
+    }),
+    categories: PropTypes.array,
+    about: PropTypes.object,
+    socialMediaLinks: PropTypes.array,
+    title: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
 };
