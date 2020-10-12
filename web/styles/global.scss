@@ -1,0 +1,88 @@
+@import 'utils';
+
+:root {
+  font-size: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.body {
+  font-size: 1.6rem;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: $bg-colour;
+  color: $text-colour;
+}
+
+body,
+a,
+p,
+button,
+div,
+span,
+li {
+  font-family: $font-family;
+}
+
+.m-modal a,
+.m-modal p,
+.m-modal span,
+.m-modal strong {
+  font-family: $font-family !important;
+}
+
+.hidden {
+  display: none;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 95vw;
+
+  @include media-up(xlg) {
+    max-width: 1200px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+footer {
+  text-align: center;
+
+  a {
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset;
+
+    &:link,
+    &:visited {
+      color: $text-colour;
+    }
+
+    &:hover,
+    &:focus {
+      text-shadow: 0px -2px 0 transparent, 0px -1px 0 transparent,
+        0px 0px 0 transparent, 2px -2px 0 transparent, 2px -1px 0 transparent,
+        2px 0px 0 transparent, -2px -2px 0 transparent, -2px -1px 0 transparent,
+        -2px 0px 0 transparent, 1px -2px 0 transparent, 1px -1px 0 transparent,
+        1px 0px 0 transparent, -1px -2px 0 transparent, -1px -1px 0 transparent,
+        -1px 0px 0 transparent, 0px -2px 0 transparent, 0px -1px 0 transparent,
+        0px 0px 0 transparent;
+      box-shadow: 0 -1px 0 0 transparent inset, 0 -2px 0 0 transparent inset;
+    }
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+}

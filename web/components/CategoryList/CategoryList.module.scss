@@ -1,0 +1,47 @@
+@import '../../styles/utils';
+
+.category-list {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 4rem 0;
+  list-style-type: none;
+
+  @include media-up(sm) {
+    max-width: 60vw;
+  }
+}
+
+.category-list-item-link {
+  &:link,
+  &:visited {
+    color: $text-colour;
+    border: 2px solid $text-colour;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: color, background-color ease 0.35s;
+
+    @include media-up(sm) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $text-colour-inverted;
+    background-color: transparentize($bg-colour-inverted, 0.25);
+  }
+
+  &--active {
+    cursor: pointer;
+    pointer-events: none;
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus {
+      color: $text-colour-inverted;
+      background-color: $bg-colour-inverted;
+    }
+  }
+}
