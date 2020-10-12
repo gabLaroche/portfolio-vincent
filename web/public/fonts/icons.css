@@ -1,16 +1,17 @@
 @font-face {
     font-family: 'customicons';
-    src:  url('customicons.eot?1dwxj6');
-    src:  url('customicons.eot?1dwxj6#iefix') format('embedded-opentype'),
-    url('customicons.ttf?1dwxj6') format('truetype'),
-    url('customicons.woff?1dwxj6') format('woff'),
-    url('customicons.svg?1dwxj6#customicons') format('svg');
+    src: url('customicons.eot?1dwxj6');
+    src: url('customicons.eot?1dwxj6#iefix') format('embedded-opentype'),
+        url('customicons.ttf?1dwxj6') format('truetype'),
+        url('customicons.woff?1dwxj6') format('woff'),
+        url('customicons.svg?1dwxj6#customicons') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: block;
 }
 
-i[class^="custom-"], i[class*=" custom-"] {
+i[class^='custom-'],
+i[class*=' custom-'] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'customicons' !important;
     speak: none;
@@ -26,5 +27,5 @@ i[class^="custom-"], i[class*=" custom-"] {
 }
 
 .custom-eyeem-fill:before {
-    content: "\e900";
+    content: '\e900';
 }

@@ -1,4 +1,4 @@
-@import "../../styles/utils";
+@import '../../styles/utils';
 
 .header {
     position: sticky;
@@ -22,7 +22,8 @@
                 background-color: $text-colour;
             }
 
-            &:first-child, &:last-child {
+            &:first-child,
+            &:last-child {
                 top: 50%;
             }
 
@@ -43,9 +44,9 @@
 }
 
 .menu__control-container {
-  @include media-up(sm) {
-    width: 200px;
-  }
+    @include media-up(sm) {
+        width: 200px;
+    }
 }
 
 .menu__control {
@@ -59,7 +60,8 @@
     display: block;
     transition: transform 0.35s ease-in-out;
 
-    &:hover,&:focus {
+    &:hover,
+    &:focus {
         transform: scale(1.1);
     }
 
@@ -78,7 +80,8 @@
     z-index: 10;
     transition: transform 0.35s ease-in-out;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         transform: scale(1.1);
     }
 
@@ -114,8 +117,6 @@
     }
 }
 
-
-
 .menu {
     width: 250px;
     height: 100vh;
@@ -150,20 +151,21 @@
     a {
         text-decoration: none;
         font-size: 2rem;
-        text-shadow:
-                0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent,
-                2px -2px 0 transparent,  2px -1px 0 transparent,  2px 0px 0 transparent,
-                -2px -2px 0 transparent, -2px -1px 0 transparent, -2px 0px 0 transparent,
-                1px -2px 0 transparent,  1px -1px 0 transparent,  1px 0px 0 transparent,
-                -1px -2px 0 transparent, -1px -1px 0 transparent, -1px 0px 0 transparent,
-                0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent;
-        box-shadow:
-                0 -1px 0 0 transparent inset,
-                0 -2px 0 0 transparent inset ;
+        text-shadow: 0px -2px 0 transparent, 0px -1px 0 transparent,
+            0px 0px 0 transparent, 2px -2px 0 transparent,
+            2px -1px 0 transparent, 2px 0px 0 transparent,
+            -2px -2px 0 transparent, -2px -1px 0 transparent,
+            -2px 0px 0 transparent, 1px -2px 0 transparent,
+            1px -1px 0 transparent, 1px 0px 0 transparent,
+            -1px -2px 0 transparent, -1px -1px 0 transparent,
+            -1px 0px 0 transparent, 0px -2px 0 transparent,
+            0px -1px 0 transparent, 0px 0px 0 transparent;
+        box-shadow: 0 -1px 0 0 transparent inset, 0 -2px 0 0 transparent inset;
 
-        transition: all .3s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
-        &:link, &:visited {
+        &:link,
+        &:visited {
             color: $text-colour-inverted;
 
             .affiliate & {
@@ -171,11 +173,14 @@
             }
         }
 
-        &:hover, &:focus {
-            box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour-inverted inset ;
+        &:hover,
+        &:focus {
+            box-shadow: 0 -1px 0 0 transparent inset,
+                0 -2px 0 0 $text-colour-inverted inset;
 
             .affiliate & {
-                box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset ;
+                box-shadow: 0 -1px 0 0 transparent inset,
+                    0 -2px 0 0 $text-colour inset;
             }
         }
     }
@@ -195,7 +200,8 @@
     transition: transform 0.35s ease-in-out;
     display: block;
 
-    &:link, &:visited {
+    &:link,
+    &:visited {
         color: $text-colour;
 
         .affiliate & {
@@ -203,7 +209,8 @@
         }
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         transform: scale(1.1);
     }
 }

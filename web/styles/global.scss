@@ -1,4 +1,4 @@
-@import "utils";
+@import 'utils';
 
 :root {
     font-size: 10px;
@@ -20,11 +20,20 @@ body {
     color: $text-colour;
 }
 
-body, a, p, button, div, span, li {
+body,
+a,
+p,
+button,
+div,
+span,
+li {
     font-family: $font-family;
 }
 
-.m-modal a, .m-modal p, .m-modal span, .m-modal strong {
+.m-modal a,
+.m-modal p,
+.m-modal span,
+.m-modal strong {
     font-family: $font-family !important;
 }
 
@@ -50,24 +59,27 @@ footer {
 
     a {
         text-decoration: none;
-        transition: all .3s ease-in-out;
-        box-shadow:  0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset ;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 -1px 0 0 transparent inset, 0 -2px 0 0 $text-colour inset;
 
-        &:link, &:visited {
+        &:link,
+        &:visited {
             color: $text-colour;
         }
 
-        &:hover, &:focus {
-            text-shadow:
-                    0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent,
-                    2px -2px 0 transparent,  2px -1px 0 transparent,  2px 0px 0 transparent,
-                    -2px -2px 0 transparent, -2px -1px 0 transparent, -2px 0px 0 transparent,
-                    1px -2px 0 transparent,  1px -1px 0 transparent,  1px 0px 0 transparent,
-                    -1px -2px 0 transparent, -1px -1px 0 transparent, -1px 0px 0 transparent,
-                    0px -2px 0 transparent,  0px -1px 0 transparent,  0px 0px 0 transparent;
-            box-shadow:
-                    0 -1px 0 0 transparent inset,
-                    0 -2px 0 0 transparent inset ;
+        &:hover,
+        &:focus {
+            text-shadow: 0px -2px 0 transparent, 0px -1px 0 transparent,
+                0px 0px 0 transparent, 2px -2px 0 transparent,
+                2px -1px 0 transparent, 2px 0px 0 transparent,
+                -2px -2px 0 transparent, -2px -1px 0 transparent,
+                -2px 0px 0 transparent, 1px -2px 0 transparent,
+                1px -1px 0 transparent, 1px 0px 0 transparent,
+                -1px -2px 0 transparent, -1px -1px 0 transparent,
+                -1px 0px 0 transparent, 0px -2px 0 transparent,
+                0px -1px 0 transparent, 0px 0px 0 transparent;
+            box-shadow: 0 -1px 0 0 transparent inset,
+                0 -2px 0 0 transparent inset;
         }
     }
 

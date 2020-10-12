@@ -1,4 +1,4 @@
-@import "../../styles/utils";
+@import '../../styles/utils';
 
 .category-list {
     display: flex;
@@ -13,7 +13,8 @@
 }
 
 .category-list-item-link {
-    &:link, &:visited {
+    &:link,
+    &:visited {
         color: $text-colour;
         border: 2px solid $text-colour;
         padding: 0.5rem;
@@ -26,7 +27,8 @@
         }
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $text-colour-inverted;
         background-color: transparentize($bg-colour-inverted, 0.25);
     }
@@ -34,7 +36,10 @@
     &--active {
         cursor: pointer;
         pointer-events: none;
-        &:link, &:visited, &:hover, &:focus {
+        &:link,
+        &:visited,
+        &:hover,
+        &:focus {
             color: $text-colour-inverted;
             background-color: $bg-colour-inverted;
         }
