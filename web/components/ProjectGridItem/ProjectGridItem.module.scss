@@ -1,16 +1,16 @@
 @import '../../styles/utils';
 
 .project-grid-item {
-    &--multiple-images {
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: repeat(2, 1fr);
-    }
+  &--multiple-images {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    img {
-        margin-bottom: 1rem;
-        border-radius: 5px;
-        width: 100%;
-        height: auto;
-    }
+  img {
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+  }
 }

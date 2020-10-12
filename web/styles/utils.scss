@@ -17,20 +17,20 @@ $breakpoint-large: 1200px;
 $breakpoint-xlarge: 1440px;
 
 $mediaQueryBreakpoints: (
-    sm: $breakpoint-small,
-    md: $breakpoint-medium,
-    lg: $breakpoint-large,
-    xlg: $breakpoint-xlarge,
+  sm: $breakpoint-small,
+  md: $breakpoint-medium,
+  lg: $breakpoint-large,
+  xlg: $breakpoint-xlarge,
 );
 
 @mixin media-up($breakpointKey) {
-    @media screen and (min-width: map_get($mediaQueryBreakpoints, $breakpointKey)) {
-        @content;
-    }
+  @media screen and (min-width: map_get($mediaQueryBreakpoints, $breakpointKey)) {
+    @content;
+  }
 }
 
 @mixin media-down($breakpointKey) {
-    @media screen and (max-width: map_get($mediaQueryBreakpoints, $breakpointKey) - 1px) {
-        @content;
-    }
+  @media screen and (max-width: map_get($mediaQueryBreakpoints, $breakpointKey) - 1px) {
+    @content;
+  }
 }

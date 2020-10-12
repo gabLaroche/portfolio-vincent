@@ -1,81 +1,81 @@
 @import 'utils';
 .affiliate {
-    color: $bg-colour;
-    background-color: #ffffff;
-    h1,
-    h2 {
-        text-align: center;
-    }
+  color: $bg-colour;
+  background-color: #ffffff;
+  h1,
+  h2 {
+    text-align: center;
+  }
 
-    h1 {
-        font-size: 4.8rem;
-    }
+  h1 {
+    font-size: 4.8rem;
+  }
 
-    h2 {
-        font-size: 3.2rem;
-    }
+  h2 {
+    font-size: 3.2rem;
+  }
 
-    footer {
-        a {
-            box-shadow: 0 -1px 0 0 transparent inset,
-                0 -2px 0 0 $text-colour-inverted inset;
+  footer {
+    a {
+      box-shadow: 0 -1px 0 0 transparent inset,
+        0 -2px 0 0 $text-colour-inverted inset;
 
-            &:link,
-            &:visited {
-                color: $text-colour-inverted;
-            }
-        }
+      &:link,
+      &:visited {
+        color: $text-colour-inverted;
+      }
     }
+  }
 }
 
 .affiliate-category-list,
 .product-list {
-    padding: 0;
-    list-style-type: none;
+  padding: 0;
+  list-style-type: none;
 }
 
 .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product-list-item {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 .product-list-item-link {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
 
-    &:link,
-    &:visited {
-        text-decoration: none;
-        color: $text-colour-inverted;
-    }
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: $text-colour-inverted;
+  }
 
-    &:hover,
-    &:focus {
-        img {
-            transform: translateY(-5px);
-        }
-    }
-
+  &:hover,
+  &:focus {
     img {
-        transition: transform 0.35s ease-in-out;
+      transform: translateY(-5px);
     }
+  }
+
+  img {
+    transition: transform 0.35s ease-in-out;
+  }
 }
 
 .product-list-item-bottom {
-    span {
-        display: block;
-        text-align: center;
-    }
+  span {
+    display: block;
+    text-align: center;
+  }
 }
 
 .product-list-item-amazon {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }

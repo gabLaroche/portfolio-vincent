@@ -20,52 +20,52 @@ const query = `
 }`;
 
 const Category = ({ doc }) => {
-    const { currentCategory, categories, about, socialMediaLinks } = doc;
+  const { currentCategory, categories, about, socialMediaLinks } = doc;
 
-    return (
-        <Layout
-            title={`Vincent Blouin | ${currentCategory.title}`}
-            socialMediaLinks={socialMediaLinks}
-        >
-            <About content={about} />
-            <CategoryList
-                categories={categories}
-                currentCategoryId={currentCategory._id}
-            />
-            <ProjectGrid projects={currentCategory.projects} />
-        </Layout>
-    );
+  return (
+    <Layout
+      title={`Vincent Blouin | ${currentCategory.title}`}
+      socialMediaLinks={socialMediaLinks}
+    >
+      <About content={about} />
+      <CategoryList
+        categories={categories}
+        currentCategoryId={currentCategory._id}
+      />
+      <ProjectGrid projects={currentCategory.projects} />
+    </Layout>
+  );
 };
 
 export default Category;
 
 export const getStaticPaths = async () => {
-    // Get the paths we want to pre-render based on persons
-    const categories = await client.fetch(categoriesQuery);
-    const paths = categories.map((category) => ({
-        params: { slug: category.slug.current },
-    }));
+  // Get the paths we want to pre-render based on persons
+  const categories = await client.fetch(categoriesQuery);
+  const paths = categories.map((category) => ({
+    params: { slug: category.slug.current },
+  }));
 
-    // We'll pre-render only these paths at build time.
-    // { fallback: false } means other routes should 404.
-    return { paths, fallback: false };
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false };
 };
 export const getStaticProps = async ({ params }) => {
-    const doc = await client.fetch(query, { slug: params.slug });
-    return { props: { doc } };
+  const doc = await client.fetch(query, { slug: params.slug });
+  return { props: { doc } };
 };
 
 Category.propTypes = {
-    doc: PropTypes.shape({
-        currentCategory: PropTypes.shape({
-            projects: PropTypes.array,
-            title: PropTypes.string,
-            _id: PropTypes.string,
-        }),
-        categories: PropTypes.array,
-        about: PropTypes.object,
-        socialMediaLinks: PropTypes.array,
-        title: PropTypes.string,
-        _id: PropTypes.string,
-    }).isRequired,
+  doc: PropTypes.shape({
+    currentCategory: PropTypes.shape({
+      projects: PropTypes.array,
+      title: PropTypes.string,
+      _id: PropTypes.string,
+    }),
+    categories: PropTypes.array,
+    about: PropTypes.object,
+    socialMediaLinks: PropTypes.array,
+    title: PropTypes.string,
+    _id: PropTypes.string,
+  }).isRequired,
 };

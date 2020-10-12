@@ -20,31 +20,31 @@ const query = `
 }`;
 
 const Home = ({ doc }) => {
-    const { categories, projects, about, socialMediaLinks } = doc;
+  const { categories, projects, about, socialMediaLinks } = doc;
 
-    return (
-        <Layout title="Vincent Blouin" socialMediaLinks={socialMediaLinks}>
-            <About content={about} />
-            <CategoryList categories={categories} />
-            <ProjectGrid projects={projects} />
-        </Layout>
-    );
+  return (
+    <Layout title="Vincent Blouin" socialMediaLinks={socialMediaLinks}>
+      <About content={about} />
+      <CategoryList categories={categories} />
+      <ProjectGrid projects={projects} />
+    </Layout>
+  );
 };
 
 export const getStaticProps = async () => {
-    const doc = await client.fetch(query);
-    return {
-        props: { doc }, // will be passed to the page component as props
-    };
+  const doc = await client.fetch(query);
+  return {
+    props: { doc }, // will be passed to the page component as props
+  };
 };
 
 Home.propTypes = {
-    doc: PropTypes.shape({
-        categories: PropTypes.array,
-        projects: PropTypes.array,
-        about: PropTypes.object,
-        socialMediaLinks: PropTypes.array,
-    }).isRequired,
+  doc: PropTypes.shape({
+    categories: PropTypes.array,
+    projects: PropTypes.array,
+    about: PropTypes.object,
+    socialMediaLinks: PropTypes.array,
+  }).isRequired,
 };
 
 export default Home;
